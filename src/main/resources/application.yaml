@@ -1,7 +1,16 @@
-spring.security.oauth2.resourceserver:
-#  opaquetoken: # remote token validation (required dependency com.nimbusds:oauth2-oidc-sdk)
-#    client-id: ...
-#    client-secret: ...
-#    introspection-uri: https://dev-17431746.okta.com/oauth2/default/v1/introspect
-  jwt: # local token validation
-    issuer-uri: https://dev-17431746.okta.com/oauth2/default
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+
+spring.profiles.active: local # git ignored profile with secrets
+
+spring.security.oauth2:
+  resourceserver:
+    opaquetoken: # remote token validation
+#      client-id: ...
+#      client-secret: ...
+      introspection-uri: https://dev-17431746.okta.com/oauth2/default/v1/introspect
+    jwt: # local token validation
+      issuer-uri: https://dev-17431746.okta.com/oauth2/default
+
+
